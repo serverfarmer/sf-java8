@@ -4,12 +4,17 @@
 
 
 # TODO: discover the latest available Java version automatically (currently hardcoded)
-# TODO: discover system and hardware architecture (currently it works only on Linux-x64)
 
 # http://www.java.com/pl/download/manual.jsp
 JAVADIR="jre1.8.0_66"
-JAVAFILE="jre-8u66-linux-x64"
-BUNDLEID="111741"
+
+if [ "`uname -m`" = "x86_64" ]; then
+	JAVAFILE="jre-8u66-linux-x64"
+	BUNDLEID="111741"
+else
+	JAVAFILE="jre-8u66-linux-i586"
+	BUNDLEID="111739"
+fi
 
 
 if [ -d /opt/java ] && [ ! -h /opt/java ]; then
