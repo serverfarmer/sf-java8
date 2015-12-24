@@ -1,7 +1,4 @@
-#!/bin/bash
-. /opt/farm/scripts/init
-. /opt/farm/scripts/functions.install
-
+#!/bin/sh
 
 # TODO: discover the latest available Java version automatically (currently hardcoded)
 
