@@ -3,14 +3,14 @@
 # TODO: discover the latest available Java version automatically (currently hardcoded)
 
 # http://www.java.com/pl/download/manual.jsp
-JAVADIR="jre1.8.0_66"
+JAVADIR="jre1.8.0_71"
 
 if [ "`uname -m`" = "x86_64" ]; then
-	JAVAFILE="jre-8u66-linux-x64"
-	BUNDLEID="111741"
+	JAVAFILE="jre-8u71-linux-x64"
+	BUNDLEID="114681"
 else
-	JAVAFILE="jre-8u66-linux-i586"
-	BUNDLEID="111739"
+	JAVAFILE="jre-8u71-linux-i586"
+	BUNDLEID="114679"
 fi
 
 
