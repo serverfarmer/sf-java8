@@ -5,14 +5,19 @@
 # http://www.java.com/pl/download/manual.jsp
 JAVADIR="jre1.8.0_73"
 
-if [ "`uname -m`" = "x86_64" ]; then
+
+
+arch=`uname -m`
+if [ "$arch" = "x86_64" ]; then
 	JAVAFILE="jre-8u73-linux-x64"
 	BUNDLEID="116021"
-else
+elif [ "$arch" = "i586" ] || [ "$arch" = "i686" ]; then
 	JAVAFILE="jre-8u73-linux-i586"
 	BUNDLEID="116019"
+else
+	echo "architecture $arch is not supported, skipping Java setup"
+	exit 1
 fi
-
 
 if [ -d /opt/java ] && [ ! -h /opt/java ]; then
 	mv /opt/java /opt/java.disabled
