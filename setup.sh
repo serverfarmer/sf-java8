@@ -3,17 +3,17 @@
 # TODO: discover the latest available Java version automatically (currently hardcoded)
 
 # http://www.java.com/pl/download/manual.jsp
-JAVADIR="jre1.8.0_73"
+JAVADIR="jre1.8.0_77"
 
 
 
 arch=`uname -m`
 if [ "$arch" = "x86_64" ]; then
-	JAVAFILE="jre-8u73-linux-x64"
-	BUNDLEID="116021"
+	JAVAFILE="jre-8u77-linux-x64"
+	BUNDLEID="207221"
 elif [ "$arch" = "i586" ] || [ "$arch" = "i686" ]; then
-	JAVAFILE="jre-8u73-linux-i586"
-	BUNDLEID="116019"
+	JAVAFILE="jre-8u77-linux-i586"
+	BUNDLEID="207219"
 else
 	echo "architecture $arch is not supported, skipping Java setup"
 	exit 1
