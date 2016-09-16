@@ -38,3 +38,7 @@ if ! grep -q JAVA_HOME /etc/environment; then
 	echo 'JAVA_HOME="/opt/java"' >>/etc/environment
 	echo 'JAVA_OPTS="-Djava.net.preferIPv4Stack=true -Djava.net.preferIPv4Addresses=true"' >>/etc/environment
 fi
+
+if [ "`which java`" = "" ]; then
+	ln -s /opt/java/bin/java /usr/local/bin/java
+fi
