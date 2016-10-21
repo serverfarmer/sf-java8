@@ -1,4 +1,5 @@
 #!/bin/sh
+. /opt/farm/scripts/init
 
 # TODO: discover the latest available Java version automatically (currently hardcoded)
 
@@ -7,8 +8,12 @@ JAVADIR="jre1.8.0_111"
 
 
 
+os=`uname`
 arch=`uname -m`
-if [ "$arch" = "x86_64" ]; then
+if [ "$os" != "Linux" ]; then
+	echo "system $os is not supported, skipping Java setup"
+	exit 1
+elif [ "$arch" = "x86_64" ]; then
 	JAVAFILE="jre-8u111-linux-x64"
 	BUNDLEID="216424"
 elif [ "$arch" = "i586" ] || [ "$arch" = "i686" ]; then
