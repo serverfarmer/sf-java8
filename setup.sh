@@ -4,7 +4,7 @@
 # TODO: discover the latest available Java version automatically (currently hardcoded)
 
 # http://www.java.com/pl/download/manual.jsp
-JAVADIR="jre1.8.0_111"
+JAVADIR="jre1.8.0_121"
 
 
 
@@ -14,11 +14,11 @@ if [ "$os" != "Linux" ]; then
 	echo "system $os is not supported, skipping Java setup"
 	exit 1
 elif [ "$arch" = "x86_64" ]; then
-	JAVAFILE="jre-8u111-linux-x64"
-	BUNDLEID="216424"
+	JAVAFILE="jre-8u121-linux-x64"
+	BUNDLEID="218823_e9e7ea248e2c4826b92b3f075a80e441"
 elif [ "$arch" = "i586" ] || [ "$arch" = "i686" ]; then
-	JAVAFILE="jre-8u111-linux-i586"
-	BUNDLEID="216422"
+	JAVAFILE="jre-8u121-linux-i586"
+	BUNDLEID="218821_e9e7ea248e2c4826b92b3f075a80e441"
 else
 	echo "architecture $arch is not supported, skipping Java setup"
 	exit 1
@@ -41,7 +41,6 @@ fi
 
 if ! grep -q JAVA_HOME /etc/environment; then
 	echo 'JAVA_HOME="/opt/java"' >>/etc/environment
-	echo 'JAVA_OPTS="-Djava.net.preferIPv4Stack=true -Djava.net.preferIPv4Addresses=true"' >>/etc/environment
 fi
 
 if [ "`which java`" = "" ]; then
