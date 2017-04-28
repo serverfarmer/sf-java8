@@ -4,7 +4,7 @@
 # TODO: discover the latest available Java version automatically (currently hardcoded)
 
 # http://www.java.com/pl/download/manual.jsp
-JAVADIR="jre1.8.0_121"
+JAVADIR="jre1.8.0_131"
 
 
 
@@ -14,11 +14,11 @@ if [ "$os" != "Linux" ]; then
 	echo "system $os is not supported, skipping Java setup"
 	exit 1
 elif [ "$arch" = "x86_64" ]; then
-	JAVAFILE="jre-8u121-linux-x64"
-	BUNDLEID="218823_e9e7ea248e2c4826b92b3f075a80e441"
+	JAVAFILE="jre-8u131-linux-x64"
+	BUNDLEID="220305_d54c1d3a095b4ff2b6607d096fa80163"
 elif [ "$arch" = "i586" ] || [ "$arch" = "i686" ]; then
-	JAVAFILE="jre-8u121-linux-i586"
-	BUNDLEID="218821_e9e7ea248e2c4826b92b3f075a80e441"
+	JAVAFILE="jre-8u131-linux-i586"
+	BUNDLEID="220303_d54c1d3a095b4ff2b6607d096fa80163"
 else
 	echo "architecture $arch is not supported, skipping Java setup"
 	exit 1
