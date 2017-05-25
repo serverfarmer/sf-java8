@@ -31,7 +31,7 @@ elif [ "$arch" = "armv7l" ]; then
 
 	PRODUCT="jdk"
 	JAVAFILE="jdk-8u131-linux-arm32-vfp-hflt"
-	URL="http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-arm32-vfp-hflt.tar.gz?AuthParam=1495696190_2e826a0b8f70b10007e422ee9414a2af"
+	URL="http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-arm32-vfp-hflt.tar.gz"
 
 else
 	echo "architecture $arch is not supported, skipping Java setup"
@@ -47,7 +47,7 @@ JAVADIR="${PRODUCT}${JAVAVER}"
 if [ ! -d /opt/$JAVADIR ]; then
 	DIR="`pwd`"
 	cd /opt
-	wget -O $JAVAFILE.tar.gz "$URL"
+	wget -O $JAVAFILE.tar.gz --header="Cookie: oraclelicense=accept-securebackup-cookie" "$URL"
 	tar xzf $JAVAFILE.tar.gz
 	rm -f $JAVAFILE.tar.gz /opt/java
 	ln -sf $JAVADIR java
@@ -57,6 +57,13 @@ fi
 
 if ! grep -q JAVA_HOME /etc/environment; then
 	echo 'JAVA_HOME="/opt/java"' >>/etc/environment
+fi
+
+# On Raspbian, this directory is provided by outdated package oracle-java8-jdk,
+# which however can't be simply uninstalled due to complicated dependencies.
+if [ "$arch" = "armv7l" ] && [ -d /usr/lib/jvm/jdk-8-oracle-arm32-vfp-hflt ]; then
+	rm -rf /usr/lib/jvm/jdk-8-oracle-arm32-vfp-hflt
+	ln -s /opt/java /usr/lib/jvm/jdk-8-oracle-arm32-vfp-hflt
 fi
 
 if [ "`which java`" = "" ]; then
