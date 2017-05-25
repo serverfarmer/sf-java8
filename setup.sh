@@ -3,8 +3,9 @@
 
 # TODO: discover the latest available Java version automatically (currently hardcoded)
 
-# http://www.java.com/pl/download/manual.jsp
-JAVADIR="jre1.8.0_131"
+# Intel: http://www.java.com/pl/download/manual.jsp
+# ARM: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+JAVAVER="1.8.0_131"
 
 
 
@@ -13,12 +14,25 @@ arch=`uname -m`
 if [ "$os" != "Linux" ]; then
 	echo "system $os is not supported, skipping Java setup"
 	exit 1
+
 elif [ "$arch" = "x86_64" ]; then
+
+	PRODUCT="jre"
 	JAVAFILE="jre-8u131-linux-x64"
-	BUNDLEID="220305_d54c1d3a095b4ff2b6607d096fa80163"
+	URL="http://javadl.sun.com/webapps/download/AutoDL?BundleId=220305_d54c1d3a095b4ff2b6607d096fa80163"
+
 elif [ "$arch" = "i586" ] || [ "$arch" = "i686" ]; then
+
+	PRODUCT="jre"
 	JAVAFILE="jre-8u131-linux-i586"
-	BUNDLEID="220303_d54c1d3a095b4ff2b6607d096fa80163"
+	URL="http://javadl.sun.com/webapps/download/AutoDL?BundleId=220303_d54c1d3a095b4ff2b6607d096fa80163"
+
+elif [ "$arch" = "armv7l" ]; then
+
+	PRODUCT="jdk"
+	JAVAFILE="jdk-8u131-linux-arm32-vfp-hflt"
+	URL="http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-arm32-vfp-hflt.tar.gz?AuthParam=1495696190_2e826a0b8f70b10007e422ee9414a2af"
+
 else
 	echo "architecture $arch is not supported, skipping Java setup"
 	exit 1
@@ -28,10 +42,12 @@ if [ -d /opt/java ] && [ ! -h /opt/java ]; then
 	mv /opt/java /opt/java.disabled
 fi
 
+JAVADIR="${PRODUCT}${JAVAVER}"
+
 if [ ! -d /opt/$JAVADIR ]; then
 	DIR="`pwd`"
 	cd /opt
-	wget -O $JAVAFILE.tar.gz http://javadl.sun.com/webapps/download/AutoDL?BundleId=$BUNDLEID
+	wget -O $JAVAFILE.tar.gz "$URL"
 	tar xzf $JAVAFILE.tar.gz
 	rm -f $JAVAFILE.tar.gz /opt/java
 	ln -sf $JAVADIR java
