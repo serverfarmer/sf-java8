@@ -5,7 +5,7 @@
 
 # Intel: http://www.java.com/pl/download/manual.jsp
 # ARM: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
-JAVAVER="1.8.0_131"
+JAVAVER="1.8.0_144"
 
 
 
@@ -18,20 +18,20 @@ if [ "$os" != "Linux" ]; then
 elif [ "$arch" = "x86_64" ]; then
 
 	PRODUCT="jre"
-	JAVAFILE="jre-8u131-linux-x64"
-	URL="http://javadl.sun.com/webapps/download/AutoDL?BundleId=220305_d54c1d3a095b4ff2b6607d096fa80163"
+	JAVAFILE="jre-8u144-linux-x64"
+	URL="http://javadl.oracle.com/webapps/download/AutoDL?BundleId=225345_090f390dda5b47b9b721c7dfaa008135"
 
 elif [ "$arch" = "i586" ] || [ "$arch" = "i686" ]; then
 
 	PRODUCT="jre"
-	JAVAFILE="jre-8u131-linux-i586"
-	URL="http://javadl.sun.com/webapps/download/AutoDL?BundleId=220303_d54c1d3a095b4ff2b6607d096fa80163"
+	JAVAFILE="jre-8u144-linux-i586"
+	URL="http://javadl.oracle.com/webapps/download/AutoDL?BundleId=225343_090f390dda5b47b9b721c7dfaa008135"
 
 elif [ "$arch" = "armv7l" ]; then
 
 	PRODUCT="jdk"
-	JAVAFILE="jdk-8u131-linux-arm32-vfp-hflt"
-	URL="http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-arm32-vfp-hflt.tar.gz"
+	JAVAFILE="jdk-8u144-linux-arm32-vfp-hflt"
+	URL="http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-arm32-vfp-hflt.tar.gz"
 
 else
 	echo "architecture $arch is not supported, skipping Java setup"
