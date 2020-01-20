@@ -5,7 +5,7 @@
 
 # Intel: http://www.java.com/pl/download/manual.jsp
 # ARM: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
-JAVAVER="1.8.0_221"
+JAVAVER="1.8.0_241"
 
 
 
@@ -18,21 +18,21 @@ if [ "$os" != "Linux" ]; then
 elif [ "$arch" = "x86_64" ]; then
 
 	PRODUCT="jre"
-	JAVAFILE="jre-8u221-linux-x64"
-	URL="https://javadl.oracle.com/webapps/download/AutoDL?BundleId=239848_230deb18db3e4014bb8e3e8324f81b43"
+	JAVAFILE="jre-8u241-linux-x64"
+	URL="https://javadl.oracle.com/webapps/download/AutoDL?BundleId=241526_1f5b5a70bf22433b84d0e960903adac8"
 
 elif [ "$arch" = "i586" ] || [ "$arch" = "i686" ]; then
 
 	PRODUCT="jre"
-	JAVAFILE="jre-8u221-linux-i586"
-	URL="https://javadl.oracle.com/webapps/download/AutoDL?BundleId=239846_230deb18db3e4014bb8e3e8324f81b43"
+	JAVAFILE="jre-8u241-linux-i586"
+	URL="https://javadl.oracle.com/webapps/download/AutoDL?BundleId=241524_1f5b5a70bf22433b84d0e960903adac8"
 
 # as of 2019-04-18, all releases (even earlier than 2019-04-15) require logging in, probably due to new Java 8 license
 #elif [ "$arch" = "armv7l" ]; then
 #
 #	PRODUCT="jdk"
-#	JAVAFILE="jdk-8u221-linux-arm32-vfp-hflt"
-#	URL="https://download.oracle.com/otn/java/jdk/8u221-b11/230deb18db3e4014bb8e3e8324f81b43/jdk-8u221-linux-arm32-vfp-hflt.tar.gz"
+#	JAVAFILE="jdk-8u241-linux-arm32-vfp-hflt"
+#	URL="https://download.oracle.com/otn/java/jdk/8u241-b07/1f5b5a70bf22433b84d0e960903adac8/jdk-8u241-linux-arm32-vfp-hflt.tar.gz"
 
 else
 	echo "architecture $arch is not supported, skipping Java setup"
