@@ -5,7 +5,7 @@
 
 # Intel: http://www.java.com/pl/download/manual.jsp
 # ARM: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
-JAVAVER="1.8.0_241"
+JAVAVER="1.8.0_251"
 
 
 
@@ -18,14 +18,14 @@ if [ "$os" != "Linux" ]; then
 elif [ "$arch" = "x86_64" ]; then
 
 	PRODUCT="jre"
-	JAVAFILE="jre-8u241-linux-x64"
-	URL="https://javadl.oracle.com/webapps/download/AutoDL?BundleId=241526_1f5b5a70bf22433b84d0e960903adac8"
+	JAVAFILE="jre-8u251-linux-x64"
+	URL="https://javadl.oracle.com/webapps/download/AutoDL?BundleId=242050_3d5a2bb8f8d4428bbe94aed7ec7ae784"
 
 elif [ "$arch" = "i586" ] || [ "$arch" = "i686" ]; then
 
 	PRODUCT="jre"
-	JAVAFILE="jre-8u241-linux-i586"
-	URL="https://javadl.oracle.com/webapps/download/AutoDL?BundleId=241524_1f5b5a70bf22433b84d0e960903adac8"
+	JAVAFILE="jre-8u251-linux-i586"
+	URL="https://javadl.oracle.com/webapps/download/AutoDL?BundleId=242048_3d5a2bb8f8d4428bbe94aed7ec7ae784"
 
 else
 	echo "architecture $arch is not supported, skipping Java setup"
